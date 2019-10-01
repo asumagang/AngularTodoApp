@@ -1,0 +1,46 @@
+<div class="nav">
+        <a href="#news">Users List</a>
+        <div class="nav-right">
+          <button><a href="index.html">Todo List</a></button>
+        </div>
+      </div>
+      <div>
+        <div class="search">
+          <input  type="text" class="searchBox" placeholder="Search" [(ngModel)]="searchText" (change)="onSearch"/>
+          <button  class="searchButton">
+          Search
+          </button>
+        </div>
+        <table id="users">
+          <thead class="color-white">
+            <tr>
+              <th>Id</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Occupation</th>
+            </tr>
+          </thead>
+          <tbody class="color-grayw">
+            <tr *ngFor="let user of filteredData">
+              <td>{{user.id}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.occupation}}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="p-2" colspan="">
+      
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="center">
+        <button>&lt;</button>
+        Page 1/8
+        <button>&gt;</button>
+      </div>
+      
+      
