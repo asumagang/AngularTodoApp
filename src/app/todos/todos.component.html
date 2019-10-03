@@ -17,32 +17,37 @@
   </nav>
 
 <div class="container-flex">
-    <div class="form-group">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          placeholder="Search"
-          [(ngModel)]="searchText"
-          (change)="(onSearch)"
-        />
-      </div>
-  <table class="table" id="users">
-    <thead class="thead-dark"> 
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control form-control-sm"
+      placeholder="Search"
+      name="text1"
+    />
+  </div>
+  <table class="table table-dark">
+    <thead>
       <tr>
         <th>Id</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Todos</th>
-        <th>Occupation</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Owner</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of filteredData">
-        <td>{{ user.id }}</td>
-        <td>{{ user.firstName }}</td>
-        <td>{{ user.lastName }}</td>
-        <td><a  routerLink="/todos/{{user.id}}" ><button>view todos</button></a></td>
-        <td>{{ user.occupation }}</td>
+      <tr *ngFor="let todo of filteredData">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.name }}</td>
+        <td>{{ todo.description }}</td>
+        <td>{{ todo.status }}</td>
+        <td>{{ todo.owner }}</td>
+        <td>
+          <a href="http://127.0.0.1:5500/deleteTodo.html"
+            ><button>Delete</button></a
+          ><button>Edit</button>
+        </td>
       </tr>
     </tbody>
   </table>
